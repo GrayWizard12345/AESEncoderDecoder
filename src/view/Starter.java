@@ -56,10 +56,11 @@ public class Starter extends JFrame {
         starterObj = this;
         setTitle("Encryption/Decryption Application");
 
+        setResizable(false);
         setPanel(null, initWith, this);
         setMaximumSize(new Dimension(800,600));
-        setResizable(false);
         setVisible(true);
+        setMinimumSize(new Dimension(150, 100));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
     private static void setFramePositionCenter() {
@@ -82,6 +83,8 @@ public class Starter extends JFrame {
             thisPanel.setVisible(false);
         }
         starter.setSize(newPanel.getSize());
+        starter.setMinimumSize(newPanel.getMinimumSize());
+        starter.setMaximumSize(newPanel.getMaximumSize());
         newPanel.setVisible(true);
         setFramePositionCenter();
     }
@@ -105,8 +108,10 @@ public class Starter extends JFrame {
         JPanel decryptionPanel = new JPanel();
         decryptionPanel.setVisible(false);
         decryptionPanel.setSize(new Dimension(600,500));
+        decryptionPanel.setMinimumSize(new Dimension(600, 500));
+        decryptionPanel.setMaximumSize(new Dimension(600, 500));
         fileChooser = new JFileChooser();
-        fileChooser.setDialogTitle("Choose file to decrypt:");
+        fileChooser.setDialogTitle("Choose file:");
         fileChooser.addActionListener(fileChosen);
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 
@@ -163,9 +168,11 @@ public class Starter extends JFrame {
         JPanel encryptionPanel = new JPanel();
         encryptionPanel.setVisible(false);
         encryptionPanel.setSize(new Dimension(600,550));
+        encryptionPanel.setMinimumSize(new Dimension(600, 550));
+        encryptionPanel.setMaximumSize(new Dimension(600, 550));
         fileChooser = new JFileChooser();
         fileChooser.addActionListener(fileChosen);
-        fileChooser.setDialogTitle("Choose file to encrypt:");
+        fileChooser.setDialogTitle("Choose file:");
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         JTextArea greetingText = new JTextArea();
         updateMessage(null);
@@ -207,6 +214,7 @@ public class Starter extends JFrame {
     private static JPanel initChooseOperationPanel(){
         JPanel panel = new JPanel();
         panel.setSize(new Dimension(150,100));
+        panel.setMinimumSize(new Dimension(150,100));
         JButton encryption = new JButton("Encryption");
         JButton decryption = new JButton("Decryption");
         encryption.addActionListener(actionListener);
