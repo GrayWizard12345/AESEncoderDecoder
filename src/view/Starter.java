@@ -267,9 +267,9 @@ public class Starter extends JFrame {
                 iv = encrytion.getIv();
                 ivStr = Base64.getEncoder().encodeToString(iv);
                 encryptionDetails.setText(encryptionDetailsText += "\n\n\t\t!!! ENCRYPTION STARTED !!!");
-                encryptionDetails.setText(encryptionDetailsText += "\nIV (string:)\t\t" + ivStr);
-                encryptionDetails.setText(encryptionDetailsText += "\n\nIV (byte array:)\t\t" + Arrays.toString(iv) + "\n");
-                encryptionDetails.setText(encryptionDetailsText += "\nKey (string):\t\t" + key);
+                encryptionDetails.setText(encryptionDetailsText += "\nIV (string)\t\t" + ivStr);
+                encryptionDetails.setText(encryptionDetailsText += "\n\nIV (byte array)\t\t" + Arrays.toString(iv));
+                encryptionDetails.setText(encryptionDetailsText += "\nKey (string)\t\t" + key);
                 encryptionDetails.setText(encryptionDetailsText += "\nKey length (string):\t\t" + key.length());
                 encryptionDetails.setText(encryptionDetailsText += "\nKey length (byte array):\t\t" + encrytion.getKeyByteArray().length);
                 encryptionDetails.setText(encryptionDetailsText+= "\n\nKey (Byte array):\t\t" + Arrays.toString(encrytion.getKeyByteArray()) + "\n");
@@ -277,6 +277,7 @@ public class Starter extends JFrame {
                 String fileCreated = writeBytesToFile(path + f.getName(), encrytion.getCiphertext(), 0, "_ENCRYPTED.txt");
                 encryptionDetails.setText(encryptionDetailsText += "\n\t\t### ENCRYPTION SUCCESS ###");
                 encryptionDetails.setText(encryptionDetailsText += "\nEncrypted file:\t\t" + fileCreated);
+                encryptionDetails.setText(encryptionDetailsText += "\n\t\tPLEASE WRITE DOWN OR COPY KEY AND IV!!!\t\t");
 
             }
             else
